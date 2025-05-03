@@ -9,7 +9,7 @@
 
 main:
   - title: "CV"
-    url: /cv/
+    url: /files/GomezAndreu_CV.pdf
 
   - title: "Portfolio"
     url: /portfolio/
