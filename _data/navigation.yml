@@ -11,8 +11,8 @@ main:
   - title: "CV"
     url: /files/GomezAndreu_CV.pdf
 
-  - title: "Portfolio"
-    url: /portfolio/
+  # - title: "Portfolio"
+  #   url: /portfolio/
 
   - title: "Publications"
     url: /publications/
