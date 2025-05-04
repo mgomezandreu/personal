@@ -4,33 +4,74 @@ title: "Publications"
 permalink: /publications/
 author_profile: true
 ---
+<section id="publications" style="max-width: 900px; margin-left: 1em; padding: 2em 0;">
 
-{% if site.author.googlescholar %}
-  <div class="wordwrap">You can also find my articles on <a href="{{site.author.googlescholar}}">my Google Scholar profile</a>.</div>
-{% endif %}
+  <!-- Publication: FOCI -->
+  <div style="display: grid; grid-template-columns: 3fr 1fr; gap: 1.5em; margin-bottom: 2em; align-items: start;">
+    <div>
+      <h3>FOCI: Trajectory Optimization on Gaussian Splats</h3>
+      <p>
+        <a href="#" target="_blank">Paper Website</a> |
+        <a href="/path/to/ICRA_2025_ConvGauss_Trajectory_Optimization_on_Gaussian_Splats.pdf" target="_blank">PDF</a> | <em>Submitted to IROS 2025</em>
+      </p>
+      <p>
+        FOCI introduces a trajectory optimization framework that directly operates on 3D Gaussian Splats, a fast and expressive alternative to radiance fields. It defines a novel collision metric based on Gaussian overlap integrals and applies this to legged robot planning through tight spaces.
+      </p>
+    </div>
+    <div>
+      <img src="/images/FOCI_thumbnail.png" alt="FOCI Thumbnail" style="max-width: 100%; border-radius: 8px;">
+    </div>
+  </div>
 
-{% include base_path %}
+  <!-- Publication: RoboWrangler -->
+  <div style="display: grid; grid-template-columns: 3fr 1fr; gap: 1.5em; margin-bottom: 2em; align-items: start;">
+    <div>
+      <h3>RoboWrangler: Toward Rope-based Grasping for Mobile Manipulation</h3>
+      <p>
+        <a href="https://github.com/leggedrobotics/robowrangler" target="_blank">Project Website</a> |
+        <a href="/path/to/Towards_a_Morphing_Rope_based_Manipulator.pdf" target="_blank">PDF</a> | <em>Published at RoboSoft 2025</em>
+      </p>
+      <p>
+        This paper presents a rope-based robotic manipulator capable of ensnaring and retrieving objects using a dynamically controlled loop of rope. It introduces a hardware prototype, develops a physical simulation model, and demonstrates object manipulation on a mobile quadrupedal robot.
+      </p>
+    </div>
+    <div>
+      <img src="/images/robowrangler_thumbnail.png" alt="RoboWrangler Thumbnail" style="max-width: 100%; border-radius: 8px;">
+    </div>
+  </div>
 
-<!-- New style rendering if publication categories are defined -->
-{% if site.publication_category %}
-  {% for category in site.publication_category  %}
-    {% assign title_shown = false %}
-    {% for post in site.publications reversed %}
-      {% if post.category != category[0] %}
-        {% continue %}
-      {% endif %}
-      {% unless title_shown %}
-        <h2>{{ category[1].title }}</h2><hr />
-        {% assign title_shown = true %}
-      {% endunless %}
-      {% include archive-single.html %}
-    {% endfor %}
-  {% endfor %}
-{% else %}
-  {% for post in site.publications reversed %}
-    {% include archive-single.html %}
-  {% endfor %}
-{% endif %}
+  <!-- Publication: Beyond the Cascade -->
+  <div style="display: grid; grid-template-columns: 3fr 1fr; gap: 1.5em; margin-bottom: 2em; align-items: start;">
+    <div>
+      <h3>Beyond the Cascade: Juggling Vanilla Siteswap Patterns</h3>
+      <p>
+        <a href="https://kai-ploeger.com/beyond-cascades" target="_blank">Project Website</a> |
+        <a href="/path/to/2410.19591v1.pdf" target="_blank">PDF</a> | <em>Published at IROS 2024</em>
+      </p>
+      <p>
+        This work explores robotic juggling of siteswap patterns with varying throw heights. It introduces a constraint-based trajectory planning framework that enables seamless pattern transitions and juggling of all vanilla siteswap sequences involving up to nine-ball throws.
+      </p>
+    </div>
+    <div>
+      <iframe width="100%" height="100%" src="https://www.youtube.com/embed/fqGm-cLNWFI?start=23" title="Beyond the Cascade Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="border-radius: 8px;"></iframe>
+    </div>
+  </div>
 
+  <!-- Publication: Tactile Hardness -->
+  <div style="display: grid; grid-template-columns: 3fr 1fr; gap: 1.5em; margin-bottom: 2em; align-items: start;">
+    <div>
+      <h3>Active Sampling for Hardness Classification with Vision-Based Tactile Sensors</h3>
+      <p>
+        <a href="#" target="_blank">Paper Website</a> |
+        <a href="/path/to/GRC25_0204_FI_Tactile_Hardness.pdf" target="_blank">PDF</a> | <em>Published at German Robotics Conference 2025</em>
+      </p>
+      <p>
+        This study proposes information-theoretic active sampling strategies to improve tactile hardness classification using vision-based tactile sensors. The method is evaluated against human performance and demonstrates superior accuracy through uncertainty-driven sample selection.
+      </p>
+    </div>
+    <div>
+      <img src="/images/hardness_thumbnail.png" alt="Tactile Hardness Thumbnail" style="max-width: 100%; border-radius: 8px;">
+    </div>
+  </div>
 
-
+</section>
