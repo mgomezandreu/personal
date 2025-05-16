@@ -22,7 +22,7 @@ repository               : "academicpages/academicpages.github.io"
 #               Additional customization can be done by editing /_includes/author-profile.html
 author:
   # Biographic information
-  avatar           : "mario.png"
+  avatar           : "mario.jpeg"
   name             : "Mario Gomez"
   pronouns         : # example: "she/her"  
   bio              : "Robotics Researcher focused on Control and Planning for Autonomous Systems"
