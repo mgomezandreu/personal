@@ -1,14 +1,44 @@
 ---
 layout: archive
-title: "Portfolio"
-permalink: /portfolio/
+title: "Applied Work"
+permalink: /applied/
 author_profile: true
 ---
 
-{% include base_path %}
+<section id="applied" style="max-width: 900px; margin-left: 1em; padding: 2em 0;">
 
+  <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 1.5em; margin-bottom: 2em; align-items: start;">
+    <div>
+      <h3>ESICard: Multifunctional Student ID Cards</h3>
+      <p>
+        <i>2019</i> | <a href="https://www.businessatschool.de/de/aktuelles/detail/schuelerausweis-lichtenbergschule-darmstadt" target="_blank">BCG Article</a>
+      </p>
+      <p>
+        Led the technical development of a <b>multifunctional student ID card</b> for the Lichtenbergschule while I was a student there.
+        We created tools for the card issuance process and developed interfaces for the student and library databases.
+        The system remains in active use today.
+      </p>
+    </div>
+    <div>
+      <img src="https://mgomezandreu.github.io/personal/images/ESICard.jpg" alt="ESICard Thumbnail" style="max-width: 100%; border-radius: 8px;">
+    </div>
+  </div>
 
-{% for post in site.portfolio %}
-  {% include archive-single.html %}
-{% endfor %}
+  <!-- Publication: RoboWrangler -->
+  <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 1.5em; margin-bottom: 2em; align-items: start;">
+    <div>
+      <h3>Reference Database for Mammographic Diagnostic Procedures</h3>
+      <p>
+        <i>2015</i>
+      </p>
+      <p>
+        Developed an assistive program to <b>support medical staff in selecting appropriate mammographic diagnostic procedures</b>.
+        The program was created for the <b>University Clinic Heidelberg</b> and continues to be actively used today.
+      </p>
+    </div>
+    <div>
+      <img src="https://mgomezandreu.github.io/personal/images/UniHelp.png" alt="UniHelp Thumbnail" style="max-width: 100%; border-radius: 8px;">
+    </div>
+  </div>
 
+</section>
