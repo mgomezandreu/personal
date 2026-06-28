@@ -4,63 +4,77 @@ import Container from "@components/Container.astro";
 import PageLayout from "@layouts/PageLayout.astro";
 import ArrowCard from "@components/ArrowCard.astro";
 import Link from "@components/Link.astro";
-import { dateRange } from "@lib/utils";
 import { SITE, HOME, SOCIALS } from "@consts";
 
 const blog = (await getCollection("blog"))
   .filter(post => !post.data.draft)
   .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
-  .slice(0,SITE.NUM_POSTS_ON_HOMEPAGE);
+  .slice(0, SITE.NUM_POSTS_ON_HOMEPAGE);
 
 const projects = (await getCollection("projects"))
   .filter(project => !project.data.draft)
   .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
-  .slice(0,SITE.NUM_PROJECTS_ON_HOMEPAGE);
-
-const allwork = (await getCollection("work"))
-  .sort((a, b) => new Date(b.data.dateStart).valueOf() - new Date(a.data.dateStart).valueOf())
-  .slice(0,SITE.NUM_WORKS_ON_HOMEPAGE);
-
-const work = await Promise.all(
-  allwork.map(async (item) => {
-    const { Content } = await item.render();
-    return { ...item, Content };
-  })
-);
-
+  .slice(0, SITE.NUM_PROJECTS_ON_HOMEPAGE);
 ---
 
 <PageLayout title={HOME.TITLE} description={HOME.DESCRIPTION}>
   <Container>
     <h4 class="animate font-semibold text-black dark:text-white">
-      Hi, I'm Nano <span class="text-xl">👋🏻</span> 
+      Hi, I'm Mario <span class="text-xl">👋</span>
     </h4>
     <div class="space-y-16">
       <section>
         <article class="space-y-4">
           <p class="animate">
-            I am a minimal, seo friendly, accessible portfolio and blog for developers. 
-            I am an even more lightweight version of my popular theme
-            <Link href="https://github.com/markhorn-dev/astro-sphere" aria-label="Astro Sphere on Github" external>
-              Astro Sphere
-            </Link>.
-            I have a lighthouse scores of 100 across the board for performance, 
-            accesibility, best practices and SEO.
+            I'm a Master's student in Robotics, Systems and Control at
+            <Link href="https://ethz.ch/en.html" external>ETH Zürich</Link>.
+            I'm interested in building intelligent machines that can understand and
+            interact with the physical world. My work is at the intersection of robot
+            motion planning, control, and perception, with a focus on making algorithms
+            that are both efficient and physically accurate.
           </p>
           <p class="animate">
-            I come packed with full type safety, a sitemap, an rss feed, markdown 
-            and mdx support (use components in your markdown) through astro integrations.
-            I am styled with tailwind and come preconfigured with light, dark and 
-            system/os theme preferences out of the box.
+            I see robotics as a way to better understand both artificial intelligence
+            and human cognition. I believe intelligence develops through interaction with
+            the real world.
           </p>
           <p class="animate">
-            Visit
-            <Link href="https://github.com/markhorn-dev/astro-nano" aria-label="Astro Nano on Github" external>
-              Astro Nano on Github
-            </Link>
-            to fork the repository, read the docs or one-click deploy on Vercel or Netlify. 
+            I've worked on a range of robotics projects - from trajectory optimization
+            using 3D Gaussian Splatting, to soft robotic manipulation with rope-based
+            grippers, to motion planning for robotic juggling. My experience includes both
+            simulation and real-world systems, such as the ANYmal quadruped and automated
+            excavators with Gravis Robotics.
+          </p>
+          <p class="animate">
+            Apart from research I enjoy running, rowing, and dancing Salsa Cubana. I am big
+            on debating complex philosophical, societal and technical issues. If you are
+            interested in what I do, please reach out - always happy to grab a coffee and chat.
           </p>
         </article>
+      </section>
+
+      <section class="animate space-y-4">
+        <h5 class="font-semibold text-black dark:text-white">
+          Current Focus
+        </h5>
+        <article>
+          <p>
+            Combining learning-based methods with classical optimization for robot
+            planning and control.
+          </p>
+        </article>
+      </section>
+
+      <section class="animate space-y-4">
+        <h5 class="font-semibold text-black dark:text-white">
+          Experience
+        </h5>
+        <ul class="space-y-1">
+          <li>ETH Zürich - <Link href="https://rsl.ethz.ch/" external>Robotic Systems Lab</Link></li>
+          <li><Link href="https://gravisrobotics.com/" external>Gravis Robotics AG</Link></li>
+          <li>TU Darmstadt - <Link href="https://www.ias.informatik.tu-darmstadt.de/" external>Intelligent Autonomous Systems Group</Link></li>
+          <li>DKFZ &amp; University Medical Center Hamburg-Eppendorf</li>
+        </ul>
       </section>
 
       <section class="animate space-y-6">
@@ -76,35 +90,6 @@ const work = await Promise.all(
           {blog.map(post => (
             <li>
               <ArrowCard entry={post} />
-            </li>
-          ))}
-        </ul>
-      </section>
-
-      <section class="animate space-y-6">
-        <div class="flex flex-wrap gap-y-2 items-center justify-between">
-          <h5 class="font-semibold text-black dark:text-white">
-            Work Experience
-          </h5>
-          <Link href="/work">
-            See all work
-          </Link>
-        </div>
-        <ul class="flex flex-col space-y-4">
-          {work.map(entry => (
-            <li>
-              <div class="text-sm opacity-75">
-                {dateRange(entry.data.dateStart, entry.data.dateEnd)}
-              </div>
-              <div class="font-semibold text-black dark:text-white">
-                {entry.data.company}
-              </div>
-              <div class="text-sm opacity-75">
-                {entry.data.role}
-              </div>
-              <article>
-                <entry.Content />
-              </article>
             </li>
           ))}
         </ul>
@@ -134,7 +119,7 @@ const work = await Promise.all(
         </h5>
         <article>
           <p>
-            If you want to get in touch with me about something or just to say hi,
+            If you want to get in touch about research, a project, or just to say hi,
             reach out on social media or send me an email.
           </p>
         </article>

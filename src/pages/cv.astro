@@ -1,0 +1,109 @@
+---
+import PageLayout from "@layouts/PageLayout.astro";
+import Container from "@components/Container.astro";
+import Link from "@components/Link.astro";
+import { withBase } from "@lib/utils";
+import { CV, SITE } from "@consts";
+
+const cvPdf = withBase("/files/GomezAndreu_CV.pdf");
+
+const education = [
+  {
+    institution: "ETH Zürich",
+    detail: "M.Sc. in Robotics, Systems and Control",
+    href: "https://ethz.ch/en.html",
+  },
+];
+
+const experience = [
+  {
+    org: "ETH Zürich - Robotic Systems Lab",
+    href: "https://rsl.ethz.ch/",
+    note: "Trajectory optimization on Gaussian Splats (FOCI), rope-based mobile manipulation (RoboWrangler).",
+  },
+  {
+    org: "Gravis Robotics AG",
+    href: "https://gravisrobotics.com/",
+    note: "Latency-aware MPC and collision-aware planning for autonomous excavators.",
+  },
+  {
+    org: "TU Darmstadt - Intelligent Autonomous Systems Group",
+    href: "https://www.ias.informatik.tu-darmstadt.de/",
+    note: "Motion planning for robotic juggling; active sampling for tactile hardness classification.",
+  },
+  {
+    org: "DKFZ & University Medical Center Hamburg-Eppendorf",
+    href: undefined,
+    note: "Medical imaging and clinical software.",
+  },
+];
+---
+
+<PageLayout title={CV.TITLE} description={CV.DESCRIPTION}>
+  <Container>
+    <div class="space-y-10">
+      <div class="flex flex-wrap gap-y-2 items-center justify-between">
+        <div class="animate font-semibold text-black dark:text-white">
+          Curriculum Vitae
+        </div>
+        <a
+          href={cvPdf}
+          target="_blank"
+          class="animate text-sm underline underline-offset-2 decoration-black/30 dark:decoration-white/30 hover:text-black hover:dark:text-white transition-colors duration-300 ease-in-out"
+        >
+          Download PDF
+        </a>
+      </div>
+
+      <p class="animate text-sm opacity-75">
+        The PDF is the authoritative, up-to-date version. The summary below covers
+        education and affiliations.
+      </p>
+
+      <section class="animate space-y-4">
+        <h2 class="font-semibold text-black dark:text-white">Education</h2>
+        <ul class="space-y-3">
+          {education.map((e) => (
+            <li>
+              <div class="font-semibold text-black dark:text-white">{e.detail}</div>
+              <div class="text-sm opacity-75">
+                {e.href ? <Link href={e.href} external>{e.institution}</Link> : e.institution}
+              </div>
+            </li>
+          ))}
+        </ul>
+      </section>
+
+      <section class="animate space-y-4">
+        <h2 class="font-semibold text-black dark:text-white">Experience</h2>
+        <ul class="space-y-4">
+          {experience.map((x) => (
+            <li>
+              <div class="font-semibold text-black dark:text-white">
+                {x.href ? <Link href={x.href} external>{x.org}</Link> : x.org}
+              </div>
+              <div class="text-sm opacity-75">{x.note}</div>
+            </li>
+          ))}
+        </ul>
+      </section>
+
+      <section class="animate space-y-4">
+        <h2 class="font-semibold text-black dark:text-white">Links</h2>
+        <ul class="flex flex-wrap gap-2 text-sm">
+          <li class="flex gap-x-2 text-nowrap">
+            <Link href="https://scholar.google.com/citations?user=Dqd2NBMAAAAJ" external>Google Scholar</Link>
+            {"/"}
+          </li>
+          <li class="flex gap-x-2 text-nowrap">
+            <Link href="https://github.com/mgomezandreu" external>GitHub</Link>
+            {"/"}
+          </li>
+          <li class="line-clamp-1">
+            <Link href={`mailto:${SITE.EMAIL}`}>{SITE.EMAIL}</Link>
+          </li>
+        </ul>
+      </section>
+    </div>
+  </Container>
+</PageLayout>
