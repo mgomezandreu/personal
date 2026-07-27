@@ -43,4 +43,8 @@ export const SOCIALS: Socials = [
     NAME: "google scholar",
     HREF: "https://scholar.google.com/citations?user=Dqd2NBMAAAAJ",
   },
+  {
+    NAME: "X",
+    HREF: "https://x.com/mgomezandreu",
+  },
 ];
