@@ -60,13 +60,6 @@ export const experience: Experience[] = [
     logo: "/images/logos/ias.png",
     logoAlt: "Intelligent Autonomous Systems Group",
   },
-  {
-    org: "DKFZ & University Medical Center Hamburg-Eppendorf",
-    href: undefined,
-    note: "Medical imaging and clinical software.",
-    logo: "/images/logos/dkfz.svg",
-    logoAlt: "German Cancer Research Center (DKFZ)",
-  },
 ];
 
 export const education: Education[] = [
@@ -81,7 +74,7 @@ export const education: Education[] = [
   {
     institution: "ETH Zürich",
     detail: "M.Sc. in Robotics, Systems and Control",
-    period: "09/2023 - Ongoing",
+    period: "09/2023 - 07/2026",
     href: "https://ethz.ch/en.html",
     logo: "/images/logos/eth.svg",
     logoAlt: "ETH Zürich",
