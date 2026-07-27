@@ -1,0 +1,28 @@
+---
+import Link from "@components/Link.astro";
+import LogoChip from "@components/LogoChip.astro";
+import type { Experience } from "@data/experience";
+
+type Props = {
+  items: Experience[];
+  // CV page shows the note line and emphasises the organisation; the home page
+  // renders a lighter, single-line variant.
+  showNote?: boolean;
+};
+
+const { items, showNote = false } = Astro.props;
+---
+
+<ul class={showNote ? "space-y-4" : "space-y-3"}>
+  {items.map((x) => (
+    <li class="flex items-center gap-4">
+      <LogoChip src={x.logo} alt={x.logoAlt} />
+      <div class="min-w-0">
+        <div class={showNote ? "font-semibold text-black dark:text-white" : ""}>
+          {x.href ? <Link href={x.href} external>{x.org}</Link> : x.org}
+        </div>
+        {showNote && <div class="text-sm opacity-75">{x.note}</div>}
+      </div>
+    </li>
+  ))}
+</ul>
