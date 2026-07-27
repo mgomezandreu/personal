@@ -2,41 +2,13 @@
 import PageLayout from "@layouts/PageLayout.astro";
 import Container from "@components/Container.astro";
 import Link from "@components/Link.astro";
+import ExperienceList from "@components/ExperienceList.astro";
+import LogoChip from "@components/LogoChip.astro";
 import { withBase } from "@lib/utils";
+import { experience, education } from "@data/experience";
 import { CV, SITE } from "@consts";
 
 const cvPdf = withBase("/files/GomezAndreu_CV.pdf");
-
-const education = [
-  {
-    institution: "ETH Zürich",
-    detail: "M.Sc. in Robotics, Systems and Control",
-    href: "https://ethz.ch/en.html",
-  },
-];
-
-const experience = [
-  {
-    org: "ETH Zürich - Robotic Systems Lab",
-    href: "https://rsl.ethz.ch/",
-    note: "Trajectory optimization on Gaussian Splats (FOCI), rope-based mobile manipulation (RoboWrangler).",
-  },
-  {
-    org: "Gravis Robotics AG",
-    href: "https://gravisrobotics.com/",
-    note: "Latency-aware MPC and collision-aware planning for autonomous excavators.",
-  },
-  {
-    org: "TU Darmstadt - Intelligent Autonomous Systems Group",
-    href: "https://www.ias.informatik.tu-darmstadt.de/",
-    note: "Motion planning for robotic juggling; active sampling for tactile hardness classification.",
-  },
-  {
-    org: "DKFZ & University Medical Center Hamburg-Eppendorf",
-    href: undefined,
-    note: "Medical imaging and clinical software.",
-  },
-];
 ---
 
 <PageLayout title={CV.TITLE} description={CV.DESCRIPTION}>
@@ -62,12 +34,18 @@ const experience = [
 
       <section class="animate space-y-4">
         <h2 class="font-semibold text-black dark:text-white">Education</h2>
-        <ul class="space-y-3">
+        <ul class="space-y-4">
           {education.map((e) => (
-            <li>
-              <div class="font-semibold text-black dark:text-white">{e.detail}</div>
-              <div class="text-sm opacity-75">
-                {e.href ? <Link href={e.href} external>{e.institution}</Link> : e.institution}
+            <li class="flex items-center gap-4">
+              <LogoChip src={e.logo} alt={e.logoAlt} />
+              <div class="min-w-0 flex-1">
+                <div class="flex flex-wrap items-baseline justify-between gap-x-4">
+                  <div class="font-semibold text-black dark:text-white">{e.detail}</div>
+                  <div class="text-sm opacity-75">{e.period}</div>
+                </div>
+                <div class="text-sm opacity-75">
+                  {e.href ? <Link href={e.href} external>{e.institution}</Link> : e.institution}
+                </div>
               </div>
             </li>
           ))}
@@ -76,16 +54,7 @@ const experience = [
 
       <section class="animate space-y-4">
         <h2 class="font-semibold text-black dark:text-white">Experience</h2>
-        <ul class="space-y-4">
-          {experience.map((x) => (
-            <li>
-              <div class="font-semibold text-black dark:text-white">
-                {x.href ? <Link href={x.href} external>{x.org}</Link> : x.org}
-              </div>
-              <div class="text-sm opacity-75">{x.note}</div>
-            </li>
-          ))}
-        </ul>
+        <ExperienceList items={experience} showNote />
       </section>
 
       <section class="animate space-y-4">
