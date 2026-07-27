@@ -71,14 +71,6 @@ export const experience: Experience[] = [
 
 export const education: Education[] = [
   {
-    institution: "ETH Zürich",
-    detail: "Ph.D. in Computer Science (incoming)",
-    period: "Incoming",
-    href: "https://ethz.ch/en.html",
-    logo: "/images/logos/eth.svg",
-    logoAlt: "ETH Zürich",
-  },
-  {
     institution: "University of Cambridge",
     detail: "Visiting Student, Master's Thesis",
     period: "01/2026 - Ongoing",
