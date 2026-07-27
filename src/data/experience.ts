@@ -73,7 +73,7 @@ export const education: Education[] = [
   {
     institution: "University of Cambridge",
     detail: "Visiting Student, Master's Thesis",
-    period: "01/2026 - Ongoing",
+    period: "01/2026 - 07/2026",
     href: "https://www.cam.ac.uk/",
     logo: "/images/logos/cambridge-university.png",
     logoAlt: "University of Cambridge",
