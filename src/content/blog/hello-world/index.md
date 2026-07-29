@@ -4,7 +4,7 @@ description: "I implemented a safety stop for VLAs based on methods that where d
 date: "2026-06-28"
 ---
 
-I wanted to get my hands dirty and build a simple VLA application as a weekend project. Being intersted in safety of data-driven robotics controller, I came across SAFE, a paper that shows that VLAs encode information about the estimated task success in their latent space. 
+I wanted to get my hands dirty and build a simple VLA application as a weekend project. Being intersted in safety of data-driven robotics controller, I came across [SAFE](https://arxiv.org/abs/2506.09937), a paper that shows that VLAs encode information about the estimated task success in their latent space. 
 Adding an additional simple MLP head a task success score can be trained. I used this metric to trigger an automatic safety stop, once it exceed a threshold. Thisallows for a human to intervene when necessary.  
 
 ## Training the VLA
