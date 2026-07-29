@@ -1,0 +1,59 @@
+---
+import PageLayout from "@layouts/PageLayout.astro";
+import Container from "@components/Container.astro";
+import Link from "@components/Link.astro";
+import { publications } from "@data/publications";
+import { PUBLICATIONS } from "@consts";
+---
+
+<PageLayout title={PUBLICATIONS.TITLE} description={PUBLICATIONS.DESCRIPTION}>
+  <Container>
+    <div class="space-y-10">
+      <div class="animate font-semibold text-black dark:text-white">
+        Publications
+      </div>
+      <div class="space-y-12">
+        {publications.map((pub) => (
+          <article class="animate grid sm:grid-cols-3 gap-4 sm:gap-6 items-start">
+            <div class="sm:col-span-2 space-y-2">
+              <h2 class="font-semibold text-black dark:text-white">
+                {pub.title}
+              </h2>
+              <div class="flex flex-wrap items-center gap-x-2 gap-y-1 text-sm">
+                {pub.links.map((link, i) => (
+                  <>
+                    {i > 0 && <span class="opacity-40">/</span>}
+                    <Link href={link.href} external>{link.label}</Link>
+                  </>
+                ))}
+                <span class="opacity-40">/</span>
+                <em class="italic opacity-75">{pub.venue}</em>
+              </div>
+              <p class="text-sm">
+                {pub.description}
+              </p>
+            </div>
+            <div class="sm:col-span-1">
+              {pub.media.type === "image" && (
+                <img src={pub.media.src} alt={pub.media.alt} loading="lazy" class="w-full rounded-lg" />
+              )}
+              {pub.media.type === "video" && (
+                <video src={pub.media.src} class="w-full rounded-lg" muted autoplay loop playsinline controls></video>
+              )}
+              {pub.media.type === "youtube" && (
+                <iframe
+                  class="w-full aspect-video rounded-lg"
+                  src={pub.media.src}
+                  title={pub.media.title}
+                  loading="lazy"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowfullscreen
+                ></iframe>
+              )}
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </Container>
+</PageLayout>
