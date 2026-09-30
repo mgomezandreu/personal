@@ -1,0 +1,43 @@
+---
+layout: archive
+title: "Side Projects"
+permalink: /side/
+author_profile: true
+---
+<section id="side-projects" style="max-width: 900px; margin-left: 1em; padding: 2em 0;">
+
+A collection of smaller projects that came out of my research and personal curiosity.
+
+  <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 1.5em; margin-bottom: 2em; align-items: start;">
+    <div>
+      <h3>Flow Matching for Trajectory Generation</h3>
+      <p>
+        <i>2025</i>
+      </p>
+      <p>
+        I played around with <b>flow-matching models</b> to generate trajectories through cluttered environments. 
+        I really like the ability of flow matching models to capture multimodality, something often overlooked in traditional trajectory optimization.
+      </p>
+    </div>
+    <div>
+      <img src="{{ site.baseurl }}/images/flow_matching_trajectory.png" alt="Flow Matching Thumbnail" style="max-width: 100%; border-radius: 8px;">
+    </div>
+  </div>
+
+  <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 1.5em; margin-bottom: 2em; align-items: start;">
+    <div>
+      <h3>GPU-Accelerated CasADi/IPOPT</h3>
+      <p>
+        <i>2024</i>
+      </p>
+      <p>
+        This spun out of my work on FOCI. Unable to find good documentation at the time, I wrote a
+        short <a href="https://github.com/mgomezandreu/casadi_warp" target="_blank">tutorial</a> on how to implement custom function objects in CasADi to leverage GPU acceleration for large-scale optimization once I figured it out.
+      </p>
+    </div>
+    <div>
+      <img src="{{ site.baseurl }}/images/casadi_warp_demo.png" alt="GPU Acceleration Thumbnail" style="max-width: 100%; border-radius: 8px;">
+    </div>
+  </div>
+
+</section>
